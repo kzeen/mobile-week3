@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">mobile-week3</string>
+    <string name="main_title">Student Feedback Form</string>
+    <string name="campus_title">Select Campus</string>
+    <string name="byblos">Byblos</string>
+    <string name="beirut">Beirut</string>
+    <string name="unspecified">Unspecified</string>
+    <string name="feature_title">Which features have you used?</string>
+    <string name="slides_lecture">Slides Lecture</string>
+    <string name="class_work">Class Work</string>
+    <string name="assignment">Assignment</string>
+    <string name="preview_title">Show Feedback Preview</string>
+    <string name="turn_on">Turn On</string>
+    <string name="topic_title">Select Topic</string>
+    <string name="rate_title">Rate Course Content</string>
+    <string-array name="topic_entries">
+        <item>Week 1</item>
+        <item>Week 2</item>
+        <item>Week 3</item>
+        <item>Week 4</item>
+        <item>Week 5</item>
+        <item>Week 6</item>
+        <item>Week 7</item>
+    </string-array>
 </resources>

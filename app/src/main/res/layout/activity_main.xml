@@ -11,7 +11,7 @@
         android:id="@+id/tv_maintitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Student Feedback Form"
+        android:text="@string/main_title"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:textSize="18sp"
@@ -23,10 +23,10 @@
         android:id="@+id/tv_studentcamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Campus"
+        android:text="@string/campus_title"
         android:layout_marginTop="16dp"
         android:textSize="16sp"
-        android:textColor="#0D93D4"
+        android:textColor="@color/subtitle_color"
         app:layout_constraintStart_toStartOf="@id/tv_maintitle"
         app:layout_constraintTop_toBottomOf="@id/tv_maintitle" />
 
@@ -42,17 +42,17 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Byblos"
+            android:text="@string/byblos"
             android:id="@+id/rb_byblos"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Beirut"
+            android:text="@string/beirut"
             android:id="@+id/rb_beirut"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Unspecified"
+            android:text="@string/unspecified"
             android:id="@+id/rb_unspecified"/>
     </RadioGroup>
 
@@ -60,10 +60,10 @@
         android:id="@+id/tv_feature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Which features have you used?"
+        android:text="@string/feature_title"
         android:layout_marginTop="16dp"
         android:textSize="16sp"
-        android:textColor="#0D93D4"
+        android:textColor="@color/subtitle_color"
         app:layout_constraintStart_toStartOf="@id/tv_maintitle"
         app:layout_constraintTop_toBottomOf="@id/rg_campusrg" />
 
@@ -71,7 +71,7 @@
         android:id="@+id/cb_lecture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Slides Lecture"
+        android:text="@string/slides_lecture"
         app:layout_constraintStart_toStartOf="@id/tv_maintitle"
         app:layout_constraintTop_toBottomOf="@id/tv_feature"/>
 
@@ -79,7 +79,7 @@
         android:id="@+id/cb_classwork"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Class Work"
+        android:text="@string/class_work"
         app:layout_constraintStart_toStartOf="@id/tv_maintitle"
         app:layout_constraintTop_toBottomOf="@id/cb_lecture"/>
 
@@ -87,7 +87,7 @@
         android:id="@+id/cb_assignment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Assignment"
+        android:text="@string/assignment"
         app:layout_constraintStart_toStartOf="@id/tv_maintitle"
         app:layout_constraintTop_toBottomOf="@id/cb_classwork"/>
 
@@ -95,11 +95,56 @@
         android:id="@+id/tv_preview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Show Feedback Preview"
+        android:text="@string/preview_title"
         android:layout_marginTop="16dp"
         android:textSize="16sp"
-        android:textColor="#0D93D4"
+        android:textColor="@color/subtitle_color"
         app:layout_constraintStart_toStartOf="@id/tv_maintitle"
         app:layout_constraintTop_toBottomOf="@id/cb_assignment" />
+
+    <Switch
+        android:id="@+id/sw_turnon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/turn_on"
+        app:layout_constraintStart_toStartOf="@id/tv_maintitle"
+        app:layout_constraintTop_toBottomOf="@id/tv_preview" />
+
+    <TextView
+        android:id="@+id/tv_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/topic_title"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        android:textColor="@color/subtitle_color"
+        app:layout_constraintStart_toStartOf="@id/tv_maintitle"
+        app:layout_constraintTop_toBottomOf="@id/sw_turnon" />
+
+    <Spinner
+        android:id="@+id/sp_weeks"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/topic_entries"
+        app:layout_constraintStart_toStartOf="@id/tv_maintitle"
+        app:layout_constraintTop_toBottomOf="@id/tv_topic"/>
+
+    <TextView
+        android:id="@+id/tv_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rate_title"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        android:textColor="@color/subtitle_color"
+        app:layout_constraintStart_toStartOf="@id/tv_maintitle"
+        app:layout_constraintTop_toBottomOf="@id/sp_weeks" />
+
+    <RatingBar
+        android:id="@+id/rt_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tv_maintitle"
+        app:layout_constraintTop_toBottomOf="@id/tv_rating"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
