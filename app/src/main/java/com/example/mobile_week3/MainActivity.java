@@ -1,5 +1,6 @@
 package com.example.mobile_week3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -123,6 +124,8 @@ public class MainActivity extends AppCompatActivity {
             feedback.setRating(rating);
             refreshPreview();
         });
+
+        btSubmit.setOnClickListener(v -> send_mail());
     }
 
     private void refreshPreview() {
@@ -131,5 +134,15 @@ public class MainActivity extends AppCompatActivity {
         } else {
             tvPreview.setText("");
         }
+    }
+
+    private void send_mail() {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("message/rfc8222");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"wissam.hlayhel@lau.edu.lb"});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
+        intent.putExtra(Intent.EXTRA_TEXT, feedback.toString());
+
+        startActivity(intent);
     }
 }
