@@ -1,6 +1,7 @@
 package com.example.mobile_week3;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -103,7 +104,21 @@ public class MainActivity extends AppCompatActivity {
             refreshPreview();
         });
 
-//        Spinner cannot be done with lambda expression because its interface has 2 methods
+        //        Spinner cannot be done with lambda expression because its interface has 2 methods
+        spTopic.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedTopic = spTopic.getItemAtPosition(position).toString();
+                feedback.setTopic(selectedTopic);
+                refreshPreview();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         rbRating.setOnRatingBarChangeListener((a, rating, b) -> {
             feedback.setRating(rating);
             refreshPreview();
