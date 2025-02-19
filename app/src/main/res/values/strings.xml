@@ -13,6 +13,7 @@
     <string name="turn_on">Turn On</string>
     <string name="topic_title">Select Topic</string>
     <string name="rate_title">Rate Course Content</string>
+    <string name="submit_feedback">Submit Feedback</string>
     <string-array name="topic_entries">
         <item>Week 1</item>
         <item>Week 2</item>

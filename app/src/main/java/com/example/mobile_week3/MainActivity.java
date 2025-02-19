@@ -1,19 +1,17 @@
 package com.example.mobile_week3;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -21,12 +19,10 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
     private RadioGroup rgCampus;
-    private RadioButton rbByblos;
-    private RadioButton rbBeirut;
-    private RadioButton rbUnspecified;
     private CheckBox cbSlides;
     private CheckBox cbClass;
     private CheckBox cbAssignment;
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
     private Switch swPreview;
     private Spinner spTopic;
     private RatingBar rbRating;
@@ -38,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -53,9 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeViews() {
         rgCampus = findViewById(R.id.rg_campusrg);
-        rbByblos = findViewById(R.id.rb_byblos);
-        rbBeirut = findViewById(R.id.rb_beirut);
-        rbUnspecified = findViewById(R.id.rb_unspecified);
         cbSlides = findViewById(R.id.cb_lecture);
         cbClass = findViewById(R.id.cb_classwork);
         cbAssignment = findViewById(R.id.cb_assignment);
@@ -89,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
         cbClass.setOnCheckedChangeListener((g, checked) -> {
             if (checked) {
-                feedback.setClassFeature("Class");
+                feedback.setClassFeature("Classwork");
             } else {
                 feedback.setClassFeature("");
             }
@@ -120,6 +112,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        swPreview.setOnClickListener(v -> refreshPreview());
+
         rbRating.setOnRatingBarChangeListener((a, rating, b) -> {
             feedback.setRating(rating);
             refreshPreview();
@@ -139,8 +133,8 @@ public class MainActivity extends AppCompatActivity {
     private void send_mail() {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("message/rfc8222");
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"wissam.hlayhel@lau.edu.lb"});
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"karl.zeeny@lau.edu"});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback from Application 3");
         intent.putExtra(Intent.EXTRA_TEXT, feedback.toString());
 
         startActivity(intent);

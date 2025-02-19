@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -25,6 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/campus_title"
+        android:textStyle="bold"
         android:layout_marginTop="16dp"
         android:textSize="@dimen/medium_title"
         android:textColor="@color/subtitle_color"
@@ -66,6 +73,7 @@
         android:layout_height="wrap_content"
         android:text="@string/feature_title"
         android:layout_marginTop="16dp"
+        android:textStyle="bold"
         android:textSize="@dimen/medium_title"
         android:textColor="@color/subtitle_color"
         app:layout_constraintStart_toStartOf="@id/tv_maintitle"
@@ -104,6 +112,7 @@
         android:layout_height="wrap_content"
         android:text="@string/preview_title"
         android:layout_marginTop="16dp"
+        android:textStyle="bold"
         android:textSize="@dimen/medium_title"
         android:textColor="@color/subtitle_color"
         app:layout_constraintStart_toStartOf="@id/tv_maintitle"
@@ -112,11 +121,12 @@
     <Switch
         android:id="@+id/sw_turnon"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:text="@string/turn_on"
         android:textSize="@dimen/small_title"
         app:layout_constraintStart_toStartOf="@id/tv_maintitle"
-        app:layout_constraintTop_toBottomOf="@id/tv_preview" />
+        app:layout_constraintTop_toBottomOf="@id/tv_preview"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <TextView
         android:id="@+id/tv_topic"
@@ -126,13 +136,15 @@
         android:layout_marginTop="16dp"
         android:textSize="@dimen/medium_title"
         android:textColor="@color/subtitle_color"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/tv_maintitle"
         app:layout_constraintTop_toBottomOf="@id/sw_turnon" />
 
     <Spinner
         android:id="@+id/sp_weeks"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        android:textSize="@dimen/small_title"
         android:entries="@array/topic_entries"
         app:layout_constraintStart_toStartOf="@id/tv_maintitle"
         app:layout_constraintTop_toBottomOf="@id/tv_topic"/>
@@ -142,6 +154,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/rate_title"
+        android:textStyle="bold"
         android:layout_marginTop="16dp"
         android:textSize="@dimen/medium_title"
         android:textColor="@color/subtitle_color"
@@ -152,6 +165,7 @@
         android:id="@+id/rt_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="@dimen/small_title"
         app:layout_constraintStart_toStartOf="@id/tv_maintitle"
         app:layout_constraintTop_toBottomOf="@id/tv_rating"/>
 
@@ -159,7 +173,9 @@
         android:id="@+id/bt_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit Feedback"
+        android:text="@string/submit_feedback"
+        android:layout_marginTop="16dp"
+        android:textSize="@dimen/small_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rt_rating"/>
@@ -177,3 +193,4 @@
         app:layout_constraintTop_toBottomOf="@id/bt_submit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
