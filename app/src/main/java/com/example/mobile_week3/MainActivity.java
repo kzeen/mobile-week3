@@ -1,6 +1,8 @@
 package com.example.mobile_week3;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -103,11 +105,27 @@ public class MainActivity extends AppCompatActivity {
             refreshPreview();
         });
 
-//        Spinner cannot be done with lambda expression because its interface has 2 methods
+        //        Spinner cannot be done with lambda expression because its interface has 2 methods
+        spTopic.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedTopic = spTopic.getItemAtPosition(position).toString();
+                feedback.setTopic(selectedTopic);
+                refreshPreview();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         rbRating.setOnRatingBarChangeListener((a, rating, b) -> {
             feedback.setRating(rating);
             refreshPreview();
         });
+
+        btSubmit.setOnClickListener(v -> send_mail());
     }
 
     private void refreshPreview() {
@@ -116,5 +134,15 @@ public class MainActivity extends AppCompatActivity {
         } else {
             tvPreview.setText("");
         }
+    }
+
+    private void send_mail() {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("message/rfc8222");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"wissam.hlayhel@lau.edu.lb"});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
+        intent.putExtra(Intent.EXTRA_TEXT, feedback.toString());
+
+        startActivity(intent);
     }
 }
